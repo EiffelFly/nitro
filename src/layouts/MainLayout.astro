@@ -1,0 +1,40 @@
+---
+import HeadCommon from "../components/HeadCommon.astro";
+import Header from "../components/Header.astro";
+import HeadSeo from "../components/HeadSeo.astro";
+import LeftSidebar from "../components/LeftSidebar.astro";
+import PageContent from "../components/PageContent.astro";
+import { SITE } from "../nitro.config";
+
+const { content = {} } = Astro.props;
+
+const formattedTitle = content.title ? `${content.title} | ${SITE.title}` : SITE.title
+const currentPage = new URL(Astro.request.url).pathname;
+---
+
+<html dir={content.dir ?? "ltr" } lang={content.lang ?? "en-us" } class="initial">
+
+<head>
+  <HeadCommon />
+  <HeadSeo content={content} canonicalURL={Astro.canonicalURL.toString()} title={formattedTitle} />
+  <title>{formattedTitle}</title>
+</head>
+
+<body>
+  <Header />
+  <main class="layout">
+    <aside id="grid-left" class="grid-sidebar" title="Site Navigation">
+      <LeftSidebar currentPage={currentPage} />
+    </aside>
+    <div id="grid-main">
+      <PageContent {content}>
+        <slot />
+      </PageContent>
+    </div>
+    <!-- <aside id="grid-right" class="grid-sidebar" title="Table of Contents">
+      <RightSidebar {content} {githubEditUrl} />
+    </aside> -->
+  </main>
+</body>
+
+</html>

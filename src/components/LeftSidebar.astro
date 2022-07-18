@@ -1,5 +1,10 @@
 ---
 import { SIDEBAR } from "../nitro.config";
+
+export interface Props {
+  currentPage: string
+}
+
 const { currentPage } = Astro.props;
 const currentPageMatch = currentPage.slice(1);
 

@@ -1,0 +1,11 @@
+---
+const { content } = Astro.props;
+const title = content.title;
+---
+
+<article id="article" class="p-0 w-full h-full flex flex-col">
+  <section class="main-section mb-16">
+    <h1 class="content-title" id="overview">{title}</h1>
+    <slot />
+  </section>
+</article>

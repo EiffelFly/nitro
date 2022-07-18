@@ -2,7 +2,15 @@ export const KNOWN_LANGUAGES = {
   English: "en",
 };
 
-export const SIDEBAR = {
+export type Sidebar = {
+  [k: string]: {
+    header?: boolean;
+    link?: string;
+    text: string;
+  }[];
+};
+
+export const SIDEBAR: Sidebar = {
   en: [
     { text: "", header: true },
     { text: "Section Header", header: true },

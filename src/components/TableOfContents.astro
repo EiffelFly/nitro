@@ -1,0 +1,19 @@
+---
+export interface Props {
+  headers: any[]
+}
+
+const { headers } = Astro.props as Props;
+---
+
+<>
+  <h2 class="mb-4">On this page</h2>
+  <ul>
+    {headers
+    .filter(({ depth }) => depth > 1 && depth < 4) .map((header)=> (
+      <li class="text-sm py-0.5 pl-2 border-l-2 border-black">
+        <a href={`#${header.slug}`}>{header.text}</a>
+      </li>
+      ))}
+  </ul>
+</>

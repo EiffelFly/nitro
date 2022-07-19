@@ -5,7 +5,7 @@ Nitro is a docs site generator based on Astro. It plans to accomplish several th
 - Over indexed block
 - Wide variety support of framework(with Astro.js) and pre-built component.
 
-## Pre-built and changable component
+## Pre-built and changable theme component
 
 - LeftSidebar
 - RightSidebar

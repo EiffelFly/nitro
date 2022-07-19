@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "workspaces": [
-    "examples/*"
+    "examples/*",
+    "packages/*"
   ],
   "engines": {
     "node": "^14.18.0 || >=16.12.0",

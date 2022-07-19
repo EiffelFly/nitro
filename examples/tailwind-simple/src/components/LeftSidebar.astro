@@ -4,11 +4,14 @@ import cn from "clsx"
 
 export interface Props {
   currentPage: string,
-  sidebarElements: SidebarElement[]
-  sidebarTopOffset: string
+  elements: SidebarElement[]
+  topOffset: string
+  hoveredItemBgColor: string
+  currentItemBgColor: string
+  currentItemTextColor: string
 }
 
-const { currentPage, sidebarElements, sidebarTopOffset } = Astro.props as Props;;
+const { currentPage, elements, hoveredItemBgColor, currentItemBgColor, currentItemTextColor, topOffset } = Astro.props as Props;;
 const currentPageMatch = currentPage.slice(1);
 
 // SIDEBAR is a flat array. Group it by sections to properly render.
@@ -18,7 +21,7 @@ type SidebarSection = {
   children: SidebarElement[]
 }
 
-const sidebarSections = sidebarElements.reduce<SidebarSection[]>((col, item, i) => {
+const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
   // If the first item is not a section header, create a new container section.
   if (i === 0) {
     if (!item.header) {
@@ -35,7 +38,7 @@ const sidebarSections = sidebarElements.reduce<SidebarSection[]>((col, item, i) 
 }, []);
 ---
 
-<nav class={cn("w-full sticky top-0", sidebarTopOffset)} aria-labelledby="grid-left">
+<nav class={cn("w-full sticky top-0", topOffset)} aria-labelledby="grid-left">
   <ul class="h-full overflow-x-visible overflow-y-auto max-h-screen">
     {sidebarSections.map((section) => (
     <li>
@@ -43,8 +46,8 @@ const sidebarSections = sidebarElements.reduce<SidebarSection[]>((col, item, i) 
         <h2 class="text-lg font-bold px-0.5 py-4 uppercase mb-2">{section.text}</h2>
         <ul>
           {section.children.map((child) => (
-          <li class={cn("text-base px-2 py-1 cursor-pointer hover:bg-slate-200", {"bg-blue-300 font-semibold" :
-            currentPageMatch===child.link})}>
+          <li class={cn("text-base px-2 py-1 cursor-pointer hover:bg-slate-200",hoveredItemBgColor,
+            currentPageMatch===child.link ? cn(currentItemBgColor, currentItemTextColor, "font-semibold" ) : "" )}>
             <a href={`${Astro.site.pathname}${child.link}`}>
               {child.text}
             </a>

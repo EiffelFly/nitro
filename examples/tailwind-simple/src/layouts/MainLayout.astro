@@ -27,7 +27,7 @@ const currentPage = new URL(Astro.request.url).pathname;
   <Header />
   <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
     <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
-      <LeftSidebar sidebarElements={SIDEBAR} currentPage={currentPage} sidebarTopOffset={baseStyles.sidebarTopOffset} />
+      <LeftSidebar elements={SIDEBAR} currentPage={currentPage} {...baseStyles.sidebar} />
     </aside>
     <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
       <PageContent {content}>

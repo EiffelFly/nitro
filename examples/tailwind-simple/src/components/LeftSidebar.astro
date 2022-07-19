@@ -1,14 +1,14 @@
 ---
-import { SidebarElement, SIDEBAR } from "../nitro.config";
+import { SidebarElement } from "../nitro.config";
 import cn from "clsx"
-import { baseStyles } from "../styles/base";
 
 export interface Props {
-  currentPage: string
+  currentPage: string,
+  sidebarElements: SidebarElement[]
+  sidebarTopOffset: string
 }
 
-const { currentPage } = Astro.props as Props;;
-const { sidebarTopOffset } = baseStyles
+const { currentPage, sidebarElements, sidebarTopOffset } = Astro.props as Props;;
 const currentPageMatch = currentPage.slice(1);
 
 // SIDEBAR is a flat array. Group it by sections to properly render.
@@ -18,7 +18,7 @@ type SidebarSection = {
   children: SidebarElement[]
 }
 
-const sidebarSections = SIDEBAR.reduce<SidebarSection[]>((col, item, i) => {
+const sidebarSections = sidebarElements.reduce<SidebarSection[]>((col, item, i) => {
   // If the first item is not a section header, create a new container section.
   if (i === 0) {
     if (!item.header) {

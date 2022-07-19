@@ -5,7 +5,8 @@ import HeadSeo from "../components/HeadSeo.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import PageContent from "../components/PageContent.astro";
 import RightSidebar from "../components/RightSidebar.astro";
-import { SITE } from "../nitro.config";
+import { SITE, SIDEBAR } from "../nitro.config";
+import { baseStyles } from "../styles/base";
 import "../styles/index.css"
 
 const { content = {} } = Astro.props;
@@ -26,7 +27,7 @@ const currentPage = new URL(Astro.request.url).pathname;
   <Header />
   <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
     <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
-      <LeftSidebar currentPage={currentPage} />
+      <LeftSidebar sidebarElements={SIDEBAR} currentPage={currentPage} sidebarTopOffset={baseStyles.sidebarTopOffset} />
     </aside>
     <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
       <PageContent {content}>

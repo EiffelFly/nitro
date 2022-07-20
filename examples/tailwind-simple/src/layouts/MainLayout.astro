@@ -2,7 +2,7 @@
 import HeadCommon from "../components/HeadCommon.astro";
 import Header from "../components/Header.astro";
 import HeadSeo from "../components/HeadSeo.astro";
-import LeftSidebar from "../components/LeftSidebar.astro";
+import FoldableLeftSidebar from "../components/LeftSidebar/FoldableLeftSidebar.astro";
 import PageContent from "../components/PageContent.astro";
 import RightSidebar from "../components/RightSidebar.astro";
 import { SITE, SIDEBAR } from "../nitro.config";
@@ -27,7 +27,7 @@ const currentPage = new URL(Astro.request.url).pathname;
   <Header />
   <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
     <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
-      <LeftSidebar elements={SIDEBAR} currentPage={currentPage} {...baseStyles.sidebar} />
+      <FoldableLeftSidebar elements={SIDEBAR} currentPage={currentPage} {...baseStyles.sidebar} />
     </aside>
     <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
       <PageContent {content}>

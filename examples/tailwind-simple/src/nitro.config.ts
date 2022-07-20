@@ -21,6 +21,8 @@ export type SidebarElement = {
 };
 
 export const SIDEBAR: SidebarElement[] = [
-  { header: true, text: "Section" },
+  { header: true, text: "Intro" },
   { text: "Page 1", link: "page-1" },
+  { text: "Page 2", link: "page-2" },
+  { header: true, text: "Quick start" },
 ];

@@ -18,16 +18,24 @@ export type SidebarElement = {
   header?: boolean;
   link?: string;
   text: string;
+  collapsible?: boolean;
 };
 
 export type SidebarSection = {
   text: string;
+  collapsible: boolean;
   children: SidebarElement[];
 };
 
 export const SIDEBAR: SidebarElement[] = [
-  { header: true, text: "Intro" },
+  { header: true, text: "Intro", collapsible: true },
   { text: "Page 1", link: "page-1" },
   { text: "Page 2", link: "page-2" },
-  { header: true, text: "Quick start" },
+  { text: "Page 3", link: "page-3" },
+  { text: "Page 4", link: "page-4" },
+  { text: "Page 5", link: "page-5" },
+  { text: "Page 6", link: "page-6" },
+  { header: true, text: "Quick start", collapsible: false },
+  { text: "Page 7", link: "page-7" },
+  { text: "Page 8", link: "page-8" },
 ];

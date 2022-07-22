@@ -20,6 +20,11 @@ export type SidebarElement = {
   text: string;
 };
 
+export type SidebarSection = {
+  text: string;
+  children: SidebarElement[];
+};
+
 export const SIDEBAR: SidebarElement[] = [
   { header: true, text: "Intro" },
   { text: "Page 1", link: "page-1" },

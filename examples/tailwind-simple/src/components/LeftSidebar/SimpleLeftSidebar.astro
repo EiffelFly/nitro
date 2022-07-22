@@ -1,5 +1,5 @@
 ---
-import { SidebarElement } from "../../nitro.config";
+import { SidebarElement, SidebarSection } from "../../nitro.config";
 import cn from "clsx"
 
 export interface Props {
@@ -15,11 +15,6 @@ const { currentPage, elements, hoveredItemBgColor, currentItemBgColor, currentIt
 const currentPageMatch = currentPage.slice(1);
 
 // SIDEBAR is a flat array. Group it by sections to properly render.
-
-type SidebarSection = {
-  text: string,
-  children: SidebarElement[]
-}
 
 const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
   // If the first item is not a section header, create a new container section.

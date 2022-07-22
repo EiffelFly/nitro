@@ -14,11 +14,15 @@
     "@astrojs/react": "^0.4.2",
     "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.5",
-    "astro": "^1.0.0-beta.72"
+    "@astrojs/vue": "^0.4.1",
+    "astro": "^1.0.0-beta.72",
+    "prettier": "2.7.1",
+    "prettier-plugin-tailwindcss":"^0.1.12"
   },
   "dependencies": {
-    "clsx": "^1.2.1",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "vue": "^3.2.37",
+    "clsx": "^1.2.1"
   }
 }

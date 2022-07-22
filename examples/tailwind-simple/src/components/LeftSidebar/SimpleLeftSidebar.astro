@@ -21,11 +21,11 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
   if (i === 0) {
     if (!item.header) {
       const pesudoSection = { text: "" };
-      col.push({ ...pesudoSection, children: [] });
+      col.push({ ...pesudoSection, children: [], collapsible: true });
     }
   }
   if (item.header) {
-    col.push({ ...item, children: [] });
+    col.push({ ...item, children: [], collapsible: item.collapsible ?? false });
   } else {
     col[col.length - 1].children.push(item);
   }

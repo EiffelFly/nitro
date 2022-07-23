@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { SidebarElement } from "../../../nitro.config";
-import VPIconMinusSquare from "./VPIconMinusSquare.vue";
-import VPIconPlusSquare from "./VPIconPlusSquare.vue";
+import IconMinusSquare from "./IconMinusSquare.vue";
+import IconPlusSquare from "./IconPlusSquare.vue";
 import cn from "clsx";
 
 const props = defineProps<{
@@ -35,14 +35,14 @@ const toggle = () => {
     >
       <h2 class="my-auto flex-1 font-semibold text-base">{{ text }}</h2>
       <div v-if="collapsible" class="relative w-8 h-8">
-        <VPIconMinusSquare
+        <IconMinusSquare
           :styleName="
             collapsed
               ? cn(baseIconStyle, 'opacity-0')
               : cn(baseIconStyle, 'opacity-1')
           "
         />
-        <VPIconPlusSquare
+        <IconPlusSquare
           :styleName="
             collapsed
               ? cn(baseIconStyle, 'opacity-1')

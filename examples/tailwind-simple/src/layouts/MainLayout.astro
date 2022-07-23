@@ -1,42 +1,50 @@
 ---
-import Navbar from "../components/Astro/Navbar/Navbar.astro";
 import HeadCommon from "../components/HeadCommon.astro";
 import HeadSeo from "../components/HeadSeo.astro";
 import PageContent from "../components/PageContent.astro";
 import RightSidebar from "../components/RightSidebar.astro";
-import LeftSidebar from "../components/VitePress/LeftSidebar/LeftSidebar.vue"
+import LeftSidebar from "../components/VitePress/LeftSidebar/LeftSidebar.vue";
+import Navbar from "../components/VitePress/Navbar/Navbar.vue";
 
 import { SITE, SIDEBAR } from "../nitro.config";
-import "../styles/index.css"
+import "../styles/index.css";
 
 const { content = {} } = Astro.props;
 
-const formattedTitle = content.title ? `${content.title} | ${SITE.title}` : SITE.title
+const formattedTitle = content.title
+  ? `${content.title} | ${SITE.title}`
+  : SITE.title;
 ---
 
-<html dir={content.dir ?? "ltr" } lang={content.lang ?? "en-us" } class="initial">
+<html dir={content.dir ?? "ltr"} lang={content.lang ?? "en-us"} class="initial">
+  <head>
+    <HeadCommon />
+    <HeadSeo
+      content={content}
+      canonicalURL={Astro.canonicalURL.toString()}
+      title={formattedTitle}
+    />
+    <title>{formattedTitle}</title>
+  </head>
 
-<head>
-  <HeadCommon />
-  <HeadSeo content={content} canonicalURL={Astro.canonicalURL.toString()} title={formattedTitle} />
-  <title>{formattedTitle}</title>
-</head>
-
-<body>
-  <Navbar />
-  <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
-    <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
-      <LeftSidebar elements={SIDEBAR} client:load />
-    </aside>
-    <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
-      <PageContent {content}>
-        <slot />
-      </PageContent>
-    </div>
-    <aside id="grid-right" class="grid-sidebar col-span-2 mr-10" title="Table of Contents">
-      <RightSidebar {content} />
-    </aside>
-  </main>
-</body>
-
+  <body>
+    <Navbar />
+    <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
+      <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
+        <LeftSidebar elements={SIDEBAR} client:load />
+      </aside>
+      <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
+        <PageContent {content}>
+          <slot />
+        </PageContent>
+      </div>
+      <aside
+        id="grid-right"
+        class="grid-sidebar col-span-2 mr-10"
+        title="Table of Contents"
+      >
+        <RightSidebar {content} />
+      </aside>
+    </main>
+  </body>
 </html>

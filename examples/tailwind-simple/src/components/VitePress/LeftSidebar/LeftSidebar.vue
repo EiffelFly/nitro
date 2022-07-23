@@ -5,13 +5,13 @@ import Section from "./Section.vue";
 import { baseStyles } from "../../../styles/base";
 import cn from "clsx";
 
-export type VPLeftSidebarProps = {
+export type LeftSidebarProps = {
   elements: SidebarElement[];
 };
 
 const { sidebar } = baseStyles;
 
-const props = defineProps<VPLeftSidebarProps>();
+const props = defineProps<LeftSidebarProps>();
 
 const sidebarSections = computed(() =>
   props.elements.reduce<SidebarSection[]>((col, item, i) => {

@@ -1,25 +1,44 @@
 ---
-import { isExteriorLink, isInteriorLink, NavbarItem } from "../../../nitro.config";
+import {
+  isExteriorLink,
+  isInteriorLink,
+  NavbarItem,
+} from "../../../nitro.config";
 
 export type Props = {
-  item: NavbarItem
-}
+  item: NavbarItem;
+};
 
-const { item } = Astro.props as Props
+const { item } = Astro.props as Props;
 ---
 
-<>
-  {(() => {
+{() => {
   if (isInteriorLink(item)) {
-  return (
-  <a class="text-lg font-medium" href={item.to}>{item.label}</a>
-  )
+    return (
+      <a class="text-lg font-medium" href={item.to}>
+        {item.label}
+      </a>
+    );
   }
 
   if (isExteriorLink(item)) {
-  return (<a href={item.href} target="_blank" rel="noopener noreferer" class="flex my-auto">{item.icon ? <img
-      src={item.icon.src} width={item.icon.width} height={item.icon.height} /> :
-    item.label}</a>)
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferer"
+        class="flex my-auto"
+      >
+        {item.icon ? (
+          <img
+            src={item.icon.src}
+            width={item.icon.width}
+            height={item.icon.height}
+          />
+        ) : (
+          <p class="my-auto">{item.label}</p>
+        )}
+      </a>
+    );
   }
-  })}
-</>
+}}

@@ -1,19 +1,16 @@
 ---
 import HeadCommon from "../components/HeadCommon.astro";
-import Header from "../components/Header.astro";
 import HeadSeo from "../components/HeadSeo.astro";
-import FoldableLeftSidebar from "../components/LeftSidebar/FoldableLeftSidebar.astro";
 import VPLeftSidebar from "../components/LeftSidebar/VPLeftSidebar/VPLeftSidebar.vue";
+import Navbar from "../components/Navbar.astro";
 import PageContent from "../components/PageContent.astro";
 import RightSidebar from "../components/RightSidebar.astro";
 import { SITE, SIDEBAR } from "../nitro.config";
-import { baseStyles } from "../styles/base";
 import "../styles/index.css"
 
 const { content = {} } = Astro.props;
 
 const formattedTitle = content.title ? `${content.title} | ${SITE.title}` : SITE.title
-const currentPage = new URL(Astro.request.url).pathname;
 ---
 
 <html dir={content.dir ?? "ltr" } lang={content.lang ?? "en-us" } class="initial">
@@ -25,7 +22,7 @@ const currentPage = new URL(Astro.request.url).pathname;
 </head>
 
 <body>
-  <Header />
+  <Navbar />
   <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
     <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
       <VPLeftSidebar elements={SIDEBAR} client:load />

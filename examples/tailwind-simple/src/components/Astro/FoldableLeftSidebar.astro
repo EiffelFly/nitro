@@ -33,7 +33,7 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
 }, []);
 ---
 
-<nav class={cn("w-full sticky top-0", topOffset)} aria-labelledby="grid-left">
+<nav class={cn("w-full sticky", topOffset)} aria-labelledby="grid-left">
   <ul class="h-full overflow-x-visible overflow-y-auto max-h-screen">
     {sidebarSections.map((section) => (
     <li>

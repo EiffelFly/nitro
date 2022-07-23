@@ -1,11 +1,15 @@
 <script lang="ts" setup>
 import { computed } from "@vue/reactivity";
 import { SidebarElement, SidebarSection } from "../../../nitro.config";
-import VPSidebarSection from "./VPSidebarSection.vue";
+import Section from "./Section.vue";
+import { baseStyles } from "../../../styles/base";
+import cn from "clsx";
 
 export type VPLeftSidebarProps = {
   elements: SidebarElement[];
 };
+
+const { sidebar } = baseStyles;
 
 const props = defineProps<VPLeftSidebarProps>();
 
@@ -33,13 +37,13 @@ const sidebarSections = computed(() =>
 </script>
 
 <template>
-  <nav class="top-0 sticky w-full flex flex-col">
+  <nav :class="cn('sticky w-full flex flex-col', sidebar.topOffset)">
     <div
       class="w-full border-t"
       v-for="section in sidebarSections"
       :key="section.text"
     >
-      <VPSidebarSection
+      <Section
         :items="section.children"
         :text="section.text"
         :collapsible="section.collapsible"

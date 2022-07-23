@@ -1,10 +1,11 @@
 ---
+import Navbar from "../components/Astro/Navbar/Navbar.astro";
 import HeadCommon from "../components/HeadCommon.astro";
 import HeadSeo from "../components/HeadSeo.astro";
-import VPLeftSidebar from "../components/LeftSidebar/VPLeftSidebar/VPLeftSidebar.vue";
-import Navbar from "../components/Navbar.astro";
 import PageContent from "../components/PageContent.astro";
 import RightSidebar from "../components/RightSidebar.astro";
+import LeftSidebar from "../components/VitePress/LeftSidebar/LeftSidebar.vue"
+
 import { SITE, SIDEBAR } from "../nitro.config";
 import "../styles/index.css"
 
@@ -25,7 +26,7 @@ const formattedTitle = content.title ? `${content.title} | ${SITE.title}` : SITE
   <Navbar />
   <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
     <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
-      <VPLeftSidebar elements={SIDEBAR} client:load />
+      <LeftSidebar elements={SIDEBAR} client:load />
     </aside>
     <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
       <PageContent {content}>

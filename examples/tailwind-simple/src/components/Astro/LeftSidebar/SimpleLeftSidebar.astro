@@ -1,5 +1,5 @@
 ---
-import { SidebarElement, SidebarSection } from "../../nitro.config";
+import { SidebarElement, SidebarSection } from "../../../nitro.config";
 import cn from "clsx";
 
 export interface Props {
@@ -11,8 +11,14 @@ export interface Props {
   currentItemTextColor: string;
 }
 
-const { currentPage, elements, currentItemTextColor, topOffset } =
-  Astro.props as Props;
+const {
+  currentPage,
+  elements,
+  hoveredItemBgColor,
+  currentItemBgColor,
+  currentItemTextColor,
+  topOffset,
+} = Astro.props as Props;
 const currentPageMatch = currentPage.slice(1);
 
 // SIDEBAR is a flat array. Group it by sections to properly render.
@@ -34,36 +40,26 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
 }, []);
 ---
 
-<nav class={cn("w-full sticky", topOffset)} aria-labelledby="grid-left">
+<nav class={cn("w-full sticky top-0", topOffset)} aria-labelledby="grid-left">
   <ul class="h-full overflow-x-visible overflow-y-auto max-h-screen">
     {sidebarSections.map((section) => (
       <li>
-        <details open>
-          <summary class="flex flex-row cursor-pointer">
-            <h2 class="my-auto text-base font-bold py-4 uppercase mr-auto">
-              {section.text}
-            </h2>
-            <svg
-              class="my-auto"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 1 16 16"
-              width="16"
-              height="16"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"
-              ></path>
-            </svg>
-          </summary>
+        <div class="">
+          <h2 class="text-lg font-bold px-0.5 py-4 uppercase mb-2">
+            {section.text}
+          </h2>
           <ul>
             {section.children.map((child) => (
               <li
                 class={cn(
-                  "text-base py-1 cursor-pointer hover:bg-slate-200",
+                  "text-base px-2 py-1 cursor-pointer hover:bg-slate-200",
+                  hoveredItemBgColor,
                   currentPageMatch === child.link
-                    ? cn(currentItemTextColor, "font-semibold")
+                    ? cn(
+                        currentItemBgColor,
+                        currentItemTextColor,
+                        "font-semibold"
+                      )
                     : ""
                 )}
               >
@@ -71,7 +67,7 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
               </li>
             ))}
           </ul>
-        </details>
+        </div>
       </li>
     ))}
   </ul>
@@ -85,9 +81,3 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
     }
   });
 </script> -->
-
-<style>
-  details[open] > summary svg {
-    transform: rotate(90deg);
-  }
-</style>

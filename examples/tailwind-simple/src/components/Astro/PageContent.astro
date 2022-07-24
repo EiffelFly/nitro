@@ -1,6 +1,9 @@
 ---
-const { content } = Astro.props;
-const title = content.title;
+export type Props = {
+  title: string;
+};
+
+const { title } = Astro.props as Props;
 ---
 
 <article id="article" class="p-0 w-full h-full flex flex-col">

@@ -1,15 +1,16 @@
 ---
-import HeadCommon from "../components/HeadCommon.astro";
-import HeadSeo from "../components/HeadSeo.astro";
-import PageContent from "../components/PageContent.astro";
-import RightSidebar from "../components/RightSidebar.astro";
+import PageContent from "../components/Astro/PageContent.astro";
+import RightSidebar from "../components/Astro/RightSidebar.astro";
 import LeftSidebar from "../components/VitePress/LeftSidebar/LeftSidebar.vue";
 import Navbar from "../components/VitePress/Navbar/Navbar.vue";
 
 import { SITE, SIDEBAR } from "../nitro.config";
 import "../styles/index.css";
+import { AstroPropContent } from "../types/astro";
+import HeadCommon from "./HeadCommon.astro";
+import HeadSeo from "./HeadSeo.astro";
 
-const { content = {} } = Astro.props;
+const content: AstroPropContent = Astro.props.content;
 
 const formattedTitle = content.title
   ? `${content.title} | ${SITE.title}`
@@ -34,7 +35,7 @@ const formattedTitle = content.title
         <LeftSidebar elements={SIDEBAR} client:load />
       </aside>
       <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
-        <PageContent {content}>
+        <PageContent title={content.title}>
           <slot />
         </PageContent>
       </div>
@@ -43,7 +44,7 @@ const formattedTitle = content.title
         class="grid-sidebar col-span-2 mr-10"
         title="Table of Contents"
       >
-        <RightSidebar {content} />
+        <RightSidebar headers={content.astro.headers} />
       </aside>
     </main>
   </body>

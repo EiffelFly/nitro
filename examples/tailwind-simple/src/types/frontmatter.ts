@@ -11,6 +11,7 @@ export type Frontmatter = {
   date?: string;
   draft?: boolean;
   author?: string;
+  dir?: string;
   feature?: {
     src: string;
     alt: string;

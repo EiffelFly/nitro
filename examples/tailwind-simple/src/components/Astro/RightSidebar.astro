@@ -1,0 +1,21 @@
+---
+import TableOfContents from "./TableOfContents.astro";
+import cn from "clsx";
+import { baseStyles } from "../../styles/base";
+import { AstroPropHeader } from "../../types/astro";
+
+export type Props = {
+  headers: AstroPropHeader[];
+};
+
+const { headers } = Astro.props as Props;
+---
+
+<nav
+  class={cn("w-full sticky top-0", baseStyles.sidebar.topOffset)}
+  aria-labelledby="grid-right"
+>
+  <div class="h-full overflow-auto">
+    <TableOfContents headers={headers} />
+  </div>
+</nav>

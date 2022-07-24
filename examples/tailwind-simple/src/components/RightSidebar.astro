@@ -2,9 +2,10 @@
 import TableOfContents from "./TableOfContents.astro";
 import cn from "clsx";
 import { baseStyles } from "../styles/base";
+import { AstroPropHeader } from "../types/astro";
 const { content } = Astro.props;
 const { sidebar } = baseStyles;
-const headers = content.astro.headers;
+const headers = content.astro.headers as AstroPropHeader[];
 ---
 
 <nav
@@ -12,6 +13,6 @@ const headers = content.astro.headers;
   aria-labelledby="grid-right"
 >
   <div class="h-full overflow-auto">
-    <TableOfContents {headers} />
+    <TableOfContents headers={headers} />
   </div>
 </nav>

@@ -1,6 +1,8 @@
 ---
+import { AstroPropHeader } from "../types/astro";
+
 export interface Props {
-  headers: any[];
+  headers: AstroPropHeader[];
 }
 
 const { headers } = Astro.props as Props;

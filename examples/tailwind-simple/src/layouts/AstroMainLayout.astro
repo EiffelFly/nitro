@@ -1,7 +1,7 @@
 ---
+import FoldableLeftSidebar from "../components/Astro/LeftSidebar/FoldableLeftSidebar.astro";
 import PageContent from "../components/Astro/PageContent.astro";
 import RightSidebar from "../components/Astro/RightSidebar.astro";
-import LeftSidebar from "../components/VitePress/LeftSidebar/LeftSidebar.vue";
 import Navbar from "../components/VitePress/Navbar/Navbar.vue";
 
 import { SITE, SIDEBAR } from "../nitro.config";
@@ -11,6 +11,7 @@ import HeadCommon from "./HeadCommon.astro";
 import HeadSeo from "./HeadSeo.astro";
 
 const content: AstroPropContent = Astro.props.content;
+const currentPage = new URL(Astro.request.url).pathname;
 
 const formattedTitle = content.title
   ? `${content.title} | ${SITE.title}`
@@ -32,7 +33,10 @@ const formattedTitle = content.title
     <Navbar />
     <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
       <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
-        <LeftSidebar elements={SIDEBAR.leftSidebar.items} client:load />
+        <FoldableLeftSidebar
+          elements={SIDEBAR.leftSidebar.items}
+          currentPage={currentPage}
+        />
       </aside>
       <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
         <PageContent title={content.title}>

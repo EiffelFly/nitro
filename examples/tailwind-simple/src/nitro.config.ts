@@ -87,6 +87,7 @@ export type NavbarExteriorLinkItem = {
     src: string;
     width: number;
     height: number;
+    alt: string;
   };
   "aria-label"?: string;
 };

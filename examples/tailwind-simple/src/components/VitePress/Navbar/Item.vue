@@ -26,6 +26,7 @@ defineProps<{
       :src="item.icon.src"
       :width="item.icon.width"
       :height="item.icon.height"
+      :alt="item.icon.alt"
     />
     <p v-else class="my-auto">{{ item.label }}</p>
   </a>

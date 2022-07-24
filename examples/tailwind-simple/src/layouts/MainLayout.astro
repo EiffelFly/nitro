@@ -32,7 +32,7 @@ const formattedTitle = content.title
     <Navbar />
     <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
       <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
-        <LeftSidebar elements={SIDEBAR} client:load />
+        <LeftSidebar elements={SIDEBAR.leftSidebar.items} client:load />
       </aside>
       <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
         <PageContent title={content.title}>

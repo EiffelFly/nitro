@@ -33,7 +33,9 @@ const toggle = () => {
       :role="collapsible ? 'button' : undefined"
       :class="cn('flex flex-row', { 'mb-4': !collapsed })"
     >
-      <h2 class="my-auto flex-1 font-semibold text-base">{{ text }}</h2>
+      <h2 class="my-auto flex-1 font-semibold text-sm">
+        {{ text }}
+      </h2>
       <div v-if="collapsible" class="relative w-8 h-8">
         <IconMinusSquare
           :styleName="
@@ -50,6 +52,7 @@ const toggle = () => {
           "
         />
       </div>
+      <div v-else class="relative w-8 h-8"></div>
     </div>
     <div
       class="flex flex-col gap-y-2"
@@ -59,7 +62,7 @@ const toggle = () => {
     >
       <template v-for="item in items" :key="item.link">
         <a
-          class="font-medium text-base text-slate-500 hover:text-slate-800"
+          class="font-normal text-sm text-slate-500 hover:text-slate-800"
           :href="item.link"
           >{{ item.text }}</a
         >

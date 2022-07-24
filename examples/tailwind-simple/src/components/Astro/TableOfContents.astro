@@ -19,8 +19,13 @@ const { headers } = Astro.props as Props;
           depth <= SIDEBAR.rightSidebar.headerMaxDepth
       )
       .map((header) => (
-        <li class="text-sm py-0.5 pl-2 border-l-2 border-black">
-          <a href={`#${header.slug}`}>{header.text}</a>
+        <li class="group text-sm py-0.5 my-2.5 pl-4 border-l-2 border-slate-300 hover:border-slate-700">
+          <a
+            class="truncate block text-slate-600 group-hover:text-slate-900"
+            href={`#${header.slug}`}
+          >
+            {header.text}
+          </a>
         </li>
       ))}
   </ul>

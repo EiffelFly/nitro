@@ -14,6 +14,16 @@ export const OPEN_GRAPH = {
   twitter: "astrodotbuild",
 };
 
+export type Sidebar = {
+  leftSidebar: {
+    items: SidebarElement[];
+  };
+  rightSidebar: {
+    headerMaxDepth: number;
+    headerMinDepth: number;
+  };
+};
+
 export type SidebarElement = {
   header?: boolean;
   link?: string;
@@ -27,18 +37,26 @@ export type SidebarSection = {
   children: SidebarElement[];
 };
 
-export const SIDEBAR: SidebarElement[] = [
-  { header: true, text: "Intro", collapsible: true },
-  { text: "Page 1", link: "page-1" },
-  { text: "Page 2", link: "page-2" },
-  { text: "Page 3", link: "page-3" },
-  { text: "Page 4", link: "page-4" },
-  { text: "Page 5", link: "page-5" },
-  { text: "Page 6", link: "page-6" },
-  { header: true, text: "Quick start", collapsible: false },
-  { text: "Page 7", link: "page-7" },
-  { text: "Page 8", link: "page-8" },
-];
+export const SIDEBAR: Sidebar = {
+  leftSidebar: {
+    items: [
+      { header: true, text: "Intro", collapsible: true },
+      { text: "Page 1", link: "page-1" },
+      { text: "Page 2", link: "page-2" },
+      { text: "Page 3", link: "page-3" },
+      { text: "Page 4", link: "page-4" },
+      { text: "Page 5", link: "page-5" },
+      { text: "Page 6", link: "page-6" },
+      { header: true, text: "Quick start", collapsible: false },
+      { text: "Page 7", link: "page-7" },
+      { text: "Page 8", link: "page-8" },
+    ],
+  },
+  rightSidebar: {
+    headerMaxDepth: 3,
+    headerMinDepth: 0,
+  },
+};
 
 export type NavBar = {
   title: string;

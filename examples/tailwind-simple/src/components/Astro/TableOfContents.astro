@@ -1,5 +1,6 @@
 ---
 import { AstroPropHeader } from "../../types/astro";
+import { SIDEBAR } from "../../nitro.config";
 
 export interface Props {
   headers: AstroPropHeader[];
@@ -12,7 +13,11 @@ const { headers } = Astro.props as Props;
   <h2 class="mb-4">On this page</h2>
   <ul>
     {headers
-      .filter(({ depth }) => depth > 1 && depth < 4)
+      .filter(
+        ({ depth }) =>
+          depth >= SIDEBAR.rightSidebar.headerMinDepth &&
+          depth <= SIDEBAR.rightSidebar.headerMaxDepth
+      )
       .map((header) => (
         <li class="text-sm py-0.5 pl-2 border-l-2 border-black">
           <a href={`#${header.slug}`}>{header.text}</a>

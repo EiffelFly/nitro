@@ -7,6 +7,7 @@ import cn from "clsx";
 
 export type LeftSidebarProps = {
   elements: SidebarElement[];
+  currentPagePath: string;
 };
 
 const { sidebar } = baseStyles;
@@ -47,6 +48,7 @@ const sidebarSections = computed(() =>
         :items="section.children"
         :text="section.text"
         :collapsible="section.collapsible"
+        :currentPagePath="currentPagePath"
       />
     </div>
   </nav>

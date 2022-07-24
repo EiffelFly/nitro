@@ -5,11 +5,11 @@ import { baseStyles } from "../../../styles/base";
 
 export interface Props {
   elements: SidebarElement[];
-  currentPage: string;
+  currentPagePath: string;
 }
 
-const { elements, currentPage } = Astro.props as Props;
-const currentPageMatch = currentPage.slice(1);
+const { elements, currentPagePath } = Astro.props as Props;
+const currentPageMatch = currentPagePath.slice(1);
 
 // SIDEBAR is a flat array. Group it by sections to properly render.
 
@@ -39,7 +39,7 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
       <li>
         <details open>
           <summary class="flex flex-row cursor-pointer">
-            <h2 class="my-auto text-base font-bold py-4 uppercase mr-auto">
+            <h2 class="my-auto text-sm font-semibold py-4 uppercase mr-auto">
               {section.text}
             </h2>
             <svg
@@ -60,13 +60,10 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
             {section.children.map((child) => (
               <li
                 class={cn(
-                  "flex text-base py-1 cursor-pointer hover:bg-slate-200",
+                  "flex text-sm font-normal py-1 cursor-pointer hover:text-gray-800",
                   currentPageMatch === child.link
-                    ? cn(
-                        baseStyles.sidebar.currentItemTextColor,
-                        "font-semibold"
-                      )
-                    : ""
+                    ? "text-gray-800"
+                    : "text-gray-400"
                 )}
               >
                 <a class="w-full" href={`${Astro.site.pathname}${child.link}`}>

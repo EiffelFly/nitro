@@ -3,7 +3,7 @@ import { SidebarElement, SidebarSection } from "../../../nitro.config";
 import cn from "clsx";
 
 export interface Props {
-  currentPage: string;
+  currentPagePath: string;
   elements: SidebarElement[];
   topOffset: string;
   hoveredItemBgColor: string;
@@ -12,14 +12,14 @@ export interface Props {
 }
 
 const {
-  currentPage,
+  currentPagePath,
   elements,
   hoveredItemBgColor,
   currentItemBgColor,
   currentItemTextColor,
   topOffset,
 } = Astro.props as Props;
-const currentPageMatch = currentPage.slice(1);
+const currentPageMatch = currentPagePath.slice(1);
 
 // SIDEBAR is a flat array. Group it by sections to properly render.
 

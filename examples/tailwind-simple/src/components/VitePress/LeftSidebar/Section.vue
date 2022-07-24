@@ -10,6 +10,7 @@ const props = defineProps<{
   items: SidebarElement[];
   collapsible?: boolean;
   collapsed?: boolean;
+  currentPagePath: string;
 }>();
 
 const collapsed = ref(false);
@@ -62,7 +63,12 @@ const toggle = () => {
     >
       <template v-for="item in items" :key="item.link">
         <a
-          class="font-normal text-sm text-slate-500 hover:text-slate-800"
+          class="font-normal text-sm hover:text-gray-800"
+          :class="
+            item.link === currentPagePath.slice(1)
+              ? 'text-gray-800'
+              : 'text-gray-400'
+          "
           :href="item.link"
           >{{ item.text }}</a
         >

@@ -1,19 +1,15 @@
 ---
-import { SidebarElement, SidebarSection } from "../../nitro.config";
+import { SidebarElement, SidebarSection } from "../../../nitro.config";
 import cn from "clsx";
+import { baseStyles } from "../../../styles/base";
 
 export interface Props {
-  currentPage: string;
   elements: SidebarElement[];
-  topOffset: string;
-  hoveredItemBgColor: string;
-  currentItemBgColor: string;
-  currentItemTextColor: string;
+  currentPagePath: string;
 }
 
-const { currentPage, elements, currentItemTextColor, topOffset } =
-  Astro.props as Props;
-const currentPageMatch = currentPage.slice(1);
+const { elements, currentPagePath } = Astro.props as Props;
+const currentPageMatch = currentPagePath.slice(1);
 
 // SIDEBAR is a flat array. Group it by sections to properly render.
 
@@ -34,13 +30,16 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
 }, []);
 ---
 
-<nav class={cn("w-full sticky", topOffset)} aria-labelledby="grid-left">
+<nav
+  class={cn("w-full sticky", baseStyles.sidebar.topOffset)}
+  aria-labelledby="grid-left"
+>
   <ul class="h-full overflow-x-visible overflow-y-auto max-h-screen">
     {sidebarSections.map((section) => (
       <li>
         <details open>
           <summary class="flex flex-row cursor-pointer">
-            <h2 class="my-auto text-base font-bold py-4 uppercase mr-auto">
+            <h2 class="my-auto text-sm font-semibold py-4 uppercase mr-auto">
               {section.text}
             </h2>
             <svg
@@ -54,20 +53,22 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
               <path
                 fill-rule="evenodd"
                 d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"
-              ></path>
+              />
             </svg>
           </summary>
           <ul>
             {section.children.map((child) => (
               <li
                 class={cn(
-                  "text-base py-1 cursor-pointer hover:bg-slate-200",
+                  "flex text-sm font-normal py-1 cursor-pointer hover:text-gray-800",
                   currentPageMatch === child.link
-                    ? cn(currentItemTextColor, "font-semibold")
-                    : ""
+                    ? "text-gray-800"
+                    : "text-gray-400"
                 )}
               >
-                <a href={`${Astro.site.pathname}${child.link}`}>{child.text}</a>
+                <a class="w-full" href={`${Astro.site.pathname}${child.link}`}>
+                  {child.text}
+                </a>
               </li>
             ))}
           </ul>

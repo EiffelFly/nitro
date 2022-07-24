@@ -1,7 +1,7 @@
 ---
-title: Page 1
-description: Lorem ipsum dolor sit amet - 1
-layout: ../layouts/AstroMainLayout.astro
+title: Page 2
+description: Lorem ipsum dolor sit amet - 2
+layout: ../layouts/VueMainLayout.astro
 lang: en_US
 date: string
 draft: false

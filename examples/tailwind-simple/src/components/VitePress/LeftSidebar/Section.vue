@@ -9,7 +9,6 @@ const props = defineProps<{
   text: string;
   items: SidebarElement[];
   collapsible?: boolean;
-  collapsed?: boolean;
   currentPagePath: string;
 }>();
 

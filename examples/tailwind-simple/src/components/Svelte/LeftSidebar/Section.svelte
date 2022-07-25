@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { ref } from "vue";
   import { SidebarElement } from "../../../nitro.config";
   import cn from "clsx";
   import IconMinusSquare from "./IconMinusSquare.svelte";

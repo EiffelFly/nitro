@@ -5,7 +5,6 @@ import cn from "clsx";
 import Item from "./Item.vue";
 
 const { logo, title, items } = NAVBAR;
-const { headerHeight } = baseStyles;
 
 let leftItems: NavbarItem[] = [];
 let rightItems: NavbarItem[] = [];
@@ -22,7 +21,10 @@ items.forEach((item) => {
 <template>
   <nav
     :class="
-      cn('w-full z-10 sticky top-0 flex py-4 px-10 bg-white', headerHeight)
+      cn(
+        'w-full z-10 sticky top-0 flex py-4 px-10 bg-white',
+        baseStyles.headerHeight
+      )
     "
     title="Top Navigation"
   >

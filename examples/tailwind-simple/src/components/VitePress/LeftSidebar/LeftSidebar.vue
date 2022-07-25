@@ -9,9 +9,6 @@ export type LeftSidebarProps = {
   elements: SidebarElement[];
   currentPagePath: string;
 };
-
-const { sidebar } = baseStyles;
-
 const props = defineProps<LeftSidebarProps>();
 
 const sidebarSections = computed(() =>
@@ -38,7 +35,7 @@ const sidebarSections = computed(() =>
 </script>
 
 <template>
-  <nav :class="cn('sticky w-full flex flex-col', sidebar.topOffset)">
+  <nav :class="cn('sticky w-full flex flex-col', baseStyles.sidebar.topOffset)">
     <div
       class="w-full border-t"
       v-for="section in sidebarSections"

@@ -124,6 +124,7 @@ export const NAVBAR: NavBar = {
         src: "/github.svg",
         width: 24,
         height: 24,
+        alt: "github icon",
       },
       position: "right",
     },

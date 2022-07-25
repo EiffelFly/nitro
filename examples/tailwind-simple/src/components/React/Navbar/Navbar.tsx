@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { useMemo } from "react";
 import { NavBar, NavbarItem } from "../../../nitro.config";
 import { baseStyles } from "../../../styles/base";
 import Item from "./Item";
@@ -8,7 +8,7 @@ export type NavbarProps = {
   navbar: NavBar;
 };
 
-const Navbar: FC<NavbarProps> = ({ navbar }) => {
+const Navbar = ({ navbar }: NavbarProps) => {
   const [leftItems, rightItems] = useMemo(() => {
     let left: NavbarItem[] = [];
     let right: NavbarItem[] = [];

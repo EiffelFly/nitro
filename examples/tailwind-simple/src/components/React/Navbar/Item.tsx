@@ -1,4 +1,3 @@
-import { FC } from "react";
 import {
   isExteriorLink,
   isInteriorLink,
@@ -9,7 +8,7 @@ export type ItemProps = {
   item: NavbarItem;
 };
 
-const Item: FC<ItemProps> = ({ item }) => {
+const Item = ({ item }: ItemProps) => {
   if (isInteriorLink(item)) {
     return (
       <a className="text-lg font-medium" href={item.to}>

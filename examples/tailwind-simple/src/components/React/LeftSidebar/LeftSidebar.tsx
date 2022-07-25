@@ -1,18 +1,18 @@
-import { FC, useMemo } from "react";
-import { SidebarElement, SidebarSection } from "../../../nitro.config";
+import { useMemo } from "react";
+import { Sidebar, SidebarSection } from "../../../nitro.config";
 import cn from "clsx";
 import Section from "./Section";
 import { baseStyles } from "../../../styles/base";
 
 export type LeftSidebarProps = {
-  elements: SidebarElement[];
+  leftSidebar: Sidebar["leftSidebar"];
   currentPagePath: string;
 };
 
-const LeftSidebar: FC<LeftSidebarProps> = ({ elements, currentPagePath }) => {
+const LeftSidebar = ({ leftSidebar, currentPagePath }: LeftSidebarProps) => {
   const sidebarSections = useMemo(
     () =>
-      elements.reduce<SidebarSection[]>((col, item, i) => {
+      leftSidebar.items.reduce<SidebarSection[]>((col, item, i) => {
         // If the first item is not a section header, create a new container section.
         if (i === 0) {
           if (!item.header) {
@@ -31,7 +31,7 @@ const LeftSidebar: FC<LeftSidebarProps> = ({ elements, currentPagePath }) => {
         }
         return col;
       }, []),
-    [elements]
+    [leftSidebar.items]
   );
 
   return (

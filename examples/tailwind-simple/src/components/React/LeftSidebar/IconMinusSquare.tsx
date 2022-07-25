@@ -1,10 +1,8 @@
-import { FC } from "react";
-
 export type IconMinusSquareProps = {
   styleName: string;
 };
 
-const IconMinusSquare: FC<IconMinusSquareProps> = ({ styleName }) => {
+const IconMinusSquare = ({ styleName }: IconMinusSquareProps) => {
   return (
     <svg
       className={styleName}

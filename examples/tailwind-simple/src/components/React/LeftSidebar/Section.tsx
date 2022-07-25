@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import cn from "clsx";
 import { SidebarElement } from "../../../nitro.config";
 import IconMinusSquare from "./IconMinusSquare";
@@ -11,12 +11,12 @@ export type SectionProps = {
   currentPagePath: string;
 };
 
-const Section: FC<SectionProps> = ({
+const Section = ({
   text,
   items,
   collapsible,
   currentPagePath,
-}) => {
+}: SectionProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const baseIconStyle =
     "absolute w-4 h-4 top-2 bottom-2 right-2 fill-slate-500";

@@ -5,6 +5,7 @@ import "../styles/index.css";
 import { AstroPropContent } from "../types/astro";
 import HeadCommon from "./HeadCommon.astro";
 import HeadSeo from "./HeadSeo.astro";
+import LeftSidebar from "../components/Svelte/LeftSidebar/LeftSidebar.svelte";
 
 const content: AstroPropContent = Astro.props.content;
 const currentPagePath = new URL(Astro.request.url).pathname;
@@ -29,6 +30,11 @@ const formattedTitle = content.title
     <Navbar />
     <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
       <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
+        <LeftSidebar
+          elements={SIDEBAR.leftSidebar.items}
+          currentPagePath={currentPagePath}
+          client:load
+        />
       </aside>
       <div id="grid-main" class="col-span-8 max-w-4xl mx-auto"></div>
       <aside

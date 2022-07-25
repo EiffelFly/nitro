@@ -9,21 +9,23 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^0.2.4",
-    "@tailwindcss/typography": "^0.5.4",
     "@astrojs/react": "^0.4.2",
+    "@astrojs/svelte": "^0.4.1",
+    "@astrojs/tailwind": "^0.2.4",
+    "@astrojs/vue": "^0.4.1",
+    "@tailwindcss/typography": "^0.5.4",
     "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.5",
-    "@astrojs/vue": "^0.4.1",
     "astro": "^1.0.0-beta.72",
     "prettier": "2.7.1",
-    "prettier-plugin-tailwindcss":"^0.1.12",
-    "prettier-plugin-astro": "^0.1.2"
+    "prettier-plugin-astro": "^0.1.2",
+    "prettier-plugin-tailwindcss": "^0.1.12",
+    "svelte": "^3.46.4"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "vue": "^3.2.37",
-    "clsx": "^1.2.1"
+    "vue": "^3.2.37"
   }
 }

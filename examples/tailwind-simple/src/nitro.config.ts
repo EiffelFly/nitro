@@ -87,6 +87,7 @@ export type NavbarExteriorLinkItem = {
     src: string;
     width: number;
     height: number;
+    alt: string;
   };
   "aria-label"?: string;
 };
@@ -123,6 +124,7 @@ export const NAVBAR: NavBar = {
         src: "/github.svg",
         width: 24,
         height: 24,
+        alt: "github icon",
       },
       position: "right",
     },

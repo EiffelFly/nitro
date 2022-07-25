@@ -6,7 +6,7 @@ import IconPlusSquare from "./IconPlusSquare.vue";
 import cn from "clsx";
 
 const props = defineProps<{
-  text?: string;
+  text: string;
   items: SidebarElement[];
   collapsible?: boolean;
   collapsed?: boolean;
@@ -26,10 +26,9 @@ const toggle = () => {
 <template>
   <section
     class="flex flex-col w-full pt-2"
-    :class="{ 'pb-2': collapsed, 'pb-6': !collapsed }"
+    :class="collapsed ? 'pb-2' : 'pb-6'"
   >
     <div
-      v-if="text"
       @click="toggle"
       :role="collapsible ? 'button' : undefined"
       :class="cn('flex flex-row', { 'mb-4': !collapsed })"
@@ -53,7 +52,7 @@ const toggle = () => {
           "
         />
       </div>
-      <div v-else class="relative w-8 h-8"></div>
+      <div v-else class="relative w-8 h-8" />
     </div>
     <div
       class="flex flex-col gap-y-2"

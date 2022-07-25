@@ -34,6 +34,7 @@ const { item } = Astro.props as Props;
             src={item.icon.src}
             width={item.icon.width}
             height={item.icon.height}
+            alt={item.icon.alt}
           />
         ) : (
           <p class="my-auto">{item.label}</p>

@@ -1,0 +1,58 @@
+---
+import LeftSidebar from "../components/React/LeftSidebar/LeftSidebar.jsx";
+import Navbar from "../components/React/Navbar/Navbar.jsx";
+import PageContent from "../components/React/PageContent.astro";
+import RightSidebar from "../components/React/RightSidebar.jsx";
+
+import { SITE, SIDEBAR, NAVBAR } from "../nitro.config";
+import "../styles/index.css";
+import { AstroPropContent } from "../types/astro";
+import HeadCommon from "./HeadCommon.astro";
+import HeadSeo from "./HeadSeo.astro";
+
+const content: AstroPropContent = Astro.props.content;
+const currentPagePath = new URL(Astro.request.url).pathname;
+
+const formattedTitle = content.title
+  ? `${content.title} | ${SITE.title}`
+  : SITE.title;
+---
+
+<html dir={content.dir ?? "ltr"} lang={content.lang ?? "en-us"} class="initial">
+  <head>
+    <HeadCommon />
+    <HeadSeo
+      content={content}
+      canonicalURL={Astro.canonicalURL.toString()}
+      title={formattedTitle}
+    />
+    <title>{formattedTitle}</title>
+  </head>
+
+  <body>
+    <Navbar navbar={NAVBAR} />
+    <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
+      <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
+        <LeftSidebar
+          leftSidebar={SIDEBAR.leftSidebar}
+          currentPagePath={currentPagePath}
+        />
+      </aside>
+      <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
+        <PageContent title={content.title}>
+          <slot />
+        </PageContent>
+      </div>
+      <aside
+        id="grid-right"
+        class="grid-sidebar col-span-2 mr-10"
+        title="Table of Contents"
+      >
+        <RightSidebar
+          headers={content.astro.headers}
+          rightSidebar={SIDEBAR.rightSidebar}
+        />
+      </aside>
+    </main>
+  </body>
+</html>

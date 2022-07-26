@@ -35,7 +35,10 @@ const sidebarSections = computed(() =>
 </script>
 
 <template>
-  <nav :class="cn('sticky w-full flex flex-col', baseStyles.sidebar.topOffset)">
+  <nav
+    :class="cn('sticky w-full flex flex-col', baseStyles.sidebar.topOffset)"
+    aria-labelledby="grid-right"
+  >
     <div
       class="w-full border-t"
       v-for="section in sidebarSections"

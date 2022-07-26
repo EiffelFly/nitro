@@ -9,13 +9,11 @@
   }>();
 </script>
 
-<template>
-  <nav
-    :class="cn('w-full sticky', baseStyles.sidebar.topOffset)"
-    aria-labelledby="grid-right"
-  >
-    <div class="h-full overflow-auto">
-      <TableOfContent :headers="props.headers" />
-    </div>
-  </nav>
-</template>
+<nav
+  class={cn("w-full sticky", baseStyles.sidebar.topOffset)}
+  aria-labelledby="grid-right"
+>
+  <div class="h-full overflow-auto">
+    <TableOfContent :headers="props.headers" />
+  </div>
+</nav>

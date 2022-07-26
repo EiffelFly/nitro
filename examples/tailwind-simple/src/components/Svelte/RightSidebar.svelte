@@ -2,11 +2,9 @@
   import cn from "clsx";
   import { baseStyles } from "../../styles/base";
   import { AstroPropHeader } from "../../types/astro";
-  import TableOfContent from "./TableOfContent.vue";
+  import TableOfContent from "./TableOfContent.svelte";
 
-  const props = defineProps<{
-    headers: AstroPropHeader[];
-  }>();
+  export let headers: AstroPropHeader[];
 </script>
 
 <nav
@@ -14,6 +12,6 @@
   aria-labelledby="grid-right"
 >
   <div class="h-full overflow-auto">
-    <TableOfContent :headers="props.headers" />
+    <TableOfContent {headers} />
   </div>
 </nav>

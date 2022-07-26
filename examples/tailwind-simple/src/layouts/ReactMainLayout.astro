@@ -1,8 +1,8 @@
 ---
-import LeftSidebar from "../components/React/LeftSidebar/LeftSidebar.jsx";
-import Navbar from "../components/React/Navbar/Navbar.jsx";
+import LeftSidebar from "../components/React/LeftSidebar/LeftSidebar";
+import Navbar from "../components/React/Navbar/Navbar";
 import PageContent from "../components/React/PageContent.astro";
-import RightSidebar from "../components/React/RightSidebar.jsx";
+import RightSidebar from "../components/React/RightSidebar";
 
 import { SITE, SIDEBAR, NAVBAR } from "../nitro.config";
 import "../styles/index.css";
@@ -30,7 +30,7 @@ const formattedTitle = content.title
   </head>
 
   <body>
-    <Navbar navbar={NAVBAR} />
+    <Navbar navbar={NAVBAR} client:load />
     <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
       <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
         <LeftSidebar

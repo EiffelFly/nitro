@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { NavBar, NavbarItem } from "../../../nitro.config";
-import { baseStyles } from "../../../styles/base";
+import { NavBar, NavbarItem } from "../../nitro.config";
+import { baseStyles } from "../../styles/base";
 import Item from "./Item";
 import cn from "clsx";
 

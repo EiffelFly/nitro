@@ -1,6 +1,6 @@
 import { useState } from "react";
 import cn from "clsx";
-import { SidebarElement } from "../../../nitro.config";
+import { SidebarElement } from "../../../../tailwind-simple/src/nitro.config";
 import IconMinusSquare from "./IconMinusSquare";
 import IconPlusSquare from "./IconPlusSquare";
 

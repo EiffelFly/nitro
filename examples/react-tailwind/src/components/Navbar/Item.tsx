@@ -1,8 +1,4 @@
-import {
-  isExteriorLink,
-  isInteriorLink,
-  NavbarItem,
-} from "../../../nitro.config";
+import { isExteriorLink, isInteriorLink, NavbarItem } from "../../nitro.config";
 
 export type ItemProps = {
   item: NavbarItem;

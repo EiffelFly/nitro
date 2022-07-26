@@ -1,8 +1,11 @@
 import { useMemo } from "react";
-import { Sidebar, SidebarSection } from "../../../nitro.config";
+import {
+  Sidebar,
+  SidebarSection,
+} from "../../../../tailwind-simple/src/nitro.config";
 import cn from "clsx";
 import Section from "./Section";
-import { baseStyles } from "../../../styles/base";
+import { baseStyles } from "../../../../tailwind-simple/src/styles/base";
 
 export type LeftSidebarProps = {
   leftSidebar: Sidebar["leftSidebar"];

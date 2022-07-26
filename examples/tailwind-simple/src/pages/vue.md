@@ -1,6 +1,6 @@
 ---
 title: Page 2
-description: Lorem ipsum dolor sit amet - 2
+description: Vue
 layout: ../layouts/VueMainLayout.astro
 lang: en_US
 date: string

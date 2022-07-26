@@ -43,7 +43,7 @@ const LeftSidebar = ({ leftSidebar, currentPagePath }: LeftSidebarProps) => {
       aria-labelledby="grid-right"
     >
       {sidebarSections.map((section) => (
-        <div className="w-full border-t">
+        <div key={section.text} className="w-full border-t">
           <Section
             items={section.children}
             text={section.text}

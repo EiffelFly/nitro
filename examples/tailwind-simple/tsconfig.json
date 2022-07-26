@@ -13,7 +13,7 @@
     "types": ["astro/client"],
 
     // For Vue, Solid
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "strict": true
   }
 }

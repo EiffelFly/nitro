@@ -30,7 +30,10 @@
   }, []);
 </script>
 
-<nav class={cn("sticky w-full flex flex-col", sidebar.topOffset)}>
+<nav
+  class={cn("sticky w-full flex flex-col", sidebar.topOffset)}
+  aria-labelledby="grid-right"
+>
   {#each sidebarSections as section}
     <div class="w-full border-t">
       <Section

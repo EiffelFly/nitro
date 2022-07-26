@@ -1,6 +1,6 @@
 ---
 title: Page 1
-description: Lorem ipsum dolor sit amet - 1
+description: Astro
 layout: ../layouts/AstroMainLayout.astro
 lang: en_US
 date: string

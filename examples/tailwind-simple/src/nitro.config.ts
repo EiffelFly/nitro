@@ -41,10 +41,10 @@ export const SIDEBAR: Sidebar = {
   leftSidebar: {
     items: [
       { header: true, text: "Intro", collapsible: true },
-      { text: "Page 1", link: "page-1" },
-      { text: "Page 2", link: "page-2" },
-      { text: "Page 3", link: "page-3" },
-      { text: "Page 4", link: "page-4" },
+      { text: "Astro", link: "astro" },
+      { text: "React", link: "react" },
+      { text: "Svelte", link: "svelte" },
+      { text: "Vue", link: "vue" },
       { text: "Page 5", link: "page-5" },
       { text: "Page 6", link: "page-6" },
       { header: true, text: "Quick start", collapsible: false },

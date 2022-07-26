@@ -40,9 +40,10 @@ const LeftSidebar = ({ leftSidebar, currentPagePath }: LeftSidebarProps) => {
         "sticky w-full flex flex-col",
         baseStyles.sidebar.topOffset
       )}
+      aria-labelledby="grid-right"
     >
       {sidebarSections.map((section) => (
-        <div className="w-full border-t">
+        <div key={section.text} className="w-full border-t">
           <Section
             items={section.children}
             text={section.text}

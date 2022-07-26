@@ -6,6 +6,8 @@ import { AstroPropContent } from "../types/astro";
 import HeadCommon from "./HeadCommon.astro";
 import HeadSeo from "./HeadSeo.astro";
 import LeftSidebar from "../components/Svelte/LeftSidebar/LeftSidebar.svelte";
+import PageContent from "../components/Svelte/PageContent.svelte";
+import RightSidebar from "../components/Svelte/RightSidebar.svelte";
 
 const content: AstroPropContent = Astro.props.content;
 const currentPagePath = new URL(Astro.request.url).pathname;
@@ -36,12 +38,17 @@ const formattedTitle = content.title
           client:load
         />
       </aside>
-      <div id="grid-main" class="col-span-8 max-w-4xl mx-auto"></div>
+      <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
+        <PageContent title={content.title}>
+          <slot />
+        </PageContent>
+      </div>
       <aside
         id="grid-right"
         class="grid-sidebar col-span-2 mr-10"
         title="Table of Contents"
       >
+        <RightSidebar headers={content.astro.headers} />
       </aside>
     </main>
   </body>

@@ -1,0 +1,28 @@
+<script lang="ts">
+  import { AstroPropHeader } from "../../types/astro";
+  import { SIDEBAR } from "../../nitro.config";
+
+  export let headers: AstroPropHeader[];
+
+  const displayHeaders = headers.filter(
+    ({ depth }) =>
+      depth >= SIDEBAR.rightSidebar.headerMinDepth &&
+      depth <= SIDEBAR.rightSidebar.headerMaxDepth
+  );
+</script>
+
+<h2 class="mb-4">On this page</h2>
+<ul>
+  {#each displayHeaders as header}
+    <li
+      class="group text-sm py-0.5 my-2.5 pl-4 border-l-2 border-slate-300 hover:border-slate-700"
+    >
+      <a
+        class="truncate block text-slate-600 group-hover:text-slate-900"
+        href={`#${header.slug}`}
+      >
+        {header.text}
+      </a>
+    </li>
+  {/each}
+</ul>

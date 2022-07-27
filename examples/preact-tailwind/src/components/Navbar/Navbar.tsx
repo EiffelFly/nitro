@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo } from "preact/hooks";
 import { NavBar, NavbarItem } from "../../nitro.config";
 import { baseStyles } from "../../styles/base";
 import Item from "./Item";
@@ -47,12 +47,12 @@ const Navbar = ({ navbar }: NavbarProps) => {
         <div className="flex-1 grid grid-cols-2">
           <div className="w-full flex flex-row">
             {items.left.map((item) => (
-              <Item key={item.label} item={item} />
+              <Item item={item} />
             ))}
           </div>
           <div className="w-full flex flex-row justify-end">
             {items.right.map((item) => (
-              <Item key={item.label} item={item} />
+              <Item item={item} />
             ))}
           </div>
         </div>

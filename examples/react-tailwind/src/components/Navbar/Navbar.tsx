@@ -46,12 +46,12 @@ const Navbar = ({ navbar }: NavbarProps) => {
         </div>
         <div className="flex-1 grid grid-cols-2">
           <div className="w-full flex flex-row">
-            {items.left.map((item) => (
+            {items.left.map((item, i) => (
               <Item key={item.label} item={item} />
             ))}
           </div>
           <div className="w-full flex flex-row justify-end">
-            {items.right.map((item) => (
+            {items.right.map((item, i) => (
               <Item key={item.label} item={item} />
             ))}
           </div>

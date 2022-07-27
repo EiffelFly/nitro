@@ -9,12 +9,14 @@ importers:
     specifiers:
       '@astrojs/react': ^0.4.2
       '@astrojs/tailwind': ^0.2.4
+      '@tailwindcss/typography': ^0.5.4
       astro: ^1.0.0-beta.73
       react: ^18.0.0
       react-dom: ^18.0.0
     devDependencies:
       '@astrojs/react': 0.4.2_biqbaboplfbrettd7655fr4n2y
       '@astrojs/tailwind': 0.2.4
+      '@tailwindcss/typography': 0.5.4
       astro: 1.0.0-beta.73
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0

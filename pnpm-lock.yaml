@@ -5,6 +5,22 @@ importers:
   .:
     specifiers: {}
 
+  examples/react-tailwind:
+    specifiers:
+      '@astrojs/react': ^0.4.2
+      '@astrojs/tailwind': ^0.2.4
+      '@tailwindcss/typography': ^0.5.4
+      astro: ^1.0.0-beta.73
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    devDependencies:
+      '@astrojs/react': 0.4.2_biqbaboplfbrettd7655fr4n2y
+      '@astrojs/tailwind': 0.2.4
+      '@tailwindcss/typography': 0.5.4
+      astro: 1.0.0-beta.73
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+
   examples/tailwind-simple:
     specifiers:
       '@astrojs/react': ^0.4.2
@@ -74,11 +90,58 @@ packages:
       vscode-uri: 3.0.3
     dev: true
 
+  /@astrojs/language-server/0.20.1:
+    resolution: {integrity: sha512-RPuN+3k3QCak0q5dW+ZrqTT2wE/sm9arKy27pvA7LzfVbuKLvEDswjUpJa2faan92BbfEiYSHW+OY/BZjY+C5w==}
+    hasBin: true
+    dependencies:
+      '@vscode/emmet-helper': 2.8.4
+      source-map: 0.7.4
+      typescript: 4.6.4
+      vscode-css-languageservice: 6.0.1
+      vscode-html-languageservice: 5.0.1
+      vscode-languageserver: 8.0.2
+      vscode-languageserver-protocol: 3.17.2
+      vscode-languageserver-textdocument: 1.0.5
+      vscode-languageserver-types: 3.17.2
+      vscode-uri: 3.0.3
+    dev: true
+
   /@astrojs/markdown-remark/0.11.7:
     resolution: {integrity: sha512-kiGQzE0X7NJOZhluyCvOKWaZomB+efx7MhESf5cLJsuTI4dvGxEZmL7kZVnuDO5d2gvyeIBkZiD64bndKyxSkw==}
     dependencies:
       '@astrojs/micromark-extension-mdx-jsx': 1.0.3
       '@astrojs/prism': 0.6.0
+      acorn: 8.7.1
+      acorn-jsx: 5.3.2_acorn@8.7.1
+      assert: 2.0.0
+      github-slugger: 1.4.0
+      mdast-util-mdx-expression: 1.2.1
+      mdast-util-mdx-jsx: 1.2.0
+      mdast-util-to-string: 3.1.0
+      micromark-extension-mdx-expression: 1.0.3
+      micromark-extension-mdx-md: 1.0.0
+      micromark-util-combine-extensions: 1.0.0
+      prismjs: 1.28.0
+      rehype-raw: 6.1.1
+      rehype-stringify: 9.0.3
+      remark-gfm: 3.0.1
+      remark-parse: 10.0.1
+      remark-rehype: 10.1.0
+      remark-smartypants: 2.0.0
+      shiki: 0.10.1
+      unified: 10.1.2
+      unist-util-map: 3.1.1
+      unist-util-visit: 4.1.0
+      vfile: 5.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@astrojs/markdown-remark/0.12.0:
+    resolution: {integrity: sha512-g1mTXA8Z6z9NxOrkVpB/d0I2sBZsZ+EZyf5MWNuujqYHvas6eCfyx9frhwyLcxnxHBPmJdr80FXOryO+/C0Jgg==}
+    dependencies:
+      '@astrojs/micromark-extension-mdx-jsx': 1.0.3
+      '@astrojs/prism': 0.6.1
       acorn: 8.7.1
       acorn-jsx: 5.3.2_acorn@8.7.1
       assert: 2.0.0
@@ -122,6 +185,11 @@ packages:
   /@astrojs/prism/0.6.0:
     resolution: {integrity: sha512-aHho3xNaJbys8KzkoyWOiwXwYwTBSe/RBflUolxEtHdNi8ibM0K3U20M6/SnamHnk6m78aEHQ4oHWFHI1wYUhw==}
     engines: {node: ^14.20.0 || >=16.14.0}
+    dev: true
+
+  /@astrojs/prism/0.6.1:
+    resolution: {integrity: sha512-/Hoppze9XPUfCIx44EUzKe3Tg7alr1MHl2++QJlDRQZfKfIvMBvf8mRMSPh7vzfayH6IlFaQUS/jMtGUWKt9wA==}
+    engines: {node: ^14.18.0 || >=16.12.0}
     dev: true
 
   /@astrojs/react/0.4.2_biqbaboplfbrettd7655fr4n2y:
@@ -190,6 +258,22 @@ packages:
   /@astrojs/telemetry/0.4.0:
     resolution: {integrity: sha512-fsriHsaSKN2XEq/WlKM3A7vDZEdAwxUqlAbH0VJxLJ1VO0kqi5FQiuUUXhekUw0kExgkAddng0FyX03ZWSQF/g==}
     engines: {node: ^14.20.0 || >=16.14.0}
+    dependencies:
+      ci-info: 3.3.2
+      debug: 4.3.4
+      dlv: 1.1.3
+      dset: 3.1.2
+      is-docker: 3.0.0
+      is-wsl: 2.2.0
+      node-fetch: 3.2.9
+      which-pm-runs: 1.1.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@astrojs/telemetry/0.4.1:
+    resolution: {integrity: sha512-xssM9IxVQGQHPNfzNlmbaQyevnD5CjSFNEszdYEoJRgsN0yzkxjgGzzVZ4Toq+7gwM5oSO2/oxNWVbP9loHEKg==}
+    engines: {node: ^14.18.0 || >=16.12.0}
     dependencies:
       ci-info: 3.3.2
       debug: 4.3.4
@@ -911,6 +995,76 @@ packages:
       '@astrojs/markdown-remark': 0.11.7
       '@astrojs/prism': 0.6.0
       '@astrojs/telemetry': 0.4.0
+      '@astrojs/webapi': 0.12.0
+      '@babel/core': 7.18.9
+      '@babel/generator': 7.18.9
+      '@babel/parser': 7.18.9
+      '@babel/plugin-transform-react-jsx': 7.18.6_@babel+core@7.18.9
+      '@babel/traverse': 7.18.9
+      '@babel/types': 7.18.9
+      '@proload/core': 0.3.2
+      '@proload/plugin-tsm': 0.2.1_@proload+core@0.3.2
+      ast-types: 0.14.2
+      boxen: 6.2.1
+      ci-info: 3.3.2
+      common-ancestor-path: 1.0.1
+      debug: 4.3.4
+      diff: 5.1.0
+      eol: 0.9.1
+      es-module-lexer: 0.10.5
+      esbuild: 0.14.49
+      estree-walker: 3.0.1
+      execa: 6.1.0
+      fast-glob: 3.2.11
+      github-slugger: 1.4.0
+      gray-matter: 4.0.3
+      html-entities: 2.3.3
+      html-escaper: 3.0.3
+      kleur: 4.1.5
+      magic-string: 0.25.9
+      micromorph: 0.1.2
+      mime: 3.0.0
+      ora: 6.1.2
+      path-browserify: 1.0.1
+      path-to-regexp: 6.2.1
+      postcss: 8.4.14
+      postcss-load-config: 3.1.4_postcss@8.4.14
+      preferred-pm: 3.0.3
+      prismjs: 1.28.0
+      prompts: 2.4.2
+      recast: 0.20.5
+      resolve: 1.22.1
+      rollup: 2.77.0
+      semver: 7.3.7
+      shiki: 0.10.1
+      sirv: 2.0.2
+      slash: 4.0.0
+      sourcemap-codec: 1.4.8
+      string-width: 5.1.2
+      strip-ansi: 7.0.1
+      supports-esm: 1.0.0
+      tsconfig-resolver: 3.0.1
+      vite: 2.9.14
+      yargs-parser: 21.0.1
+      zod: 3.17.9
+    transitivePeerDependencies:
+      - less
+      - sass
+      - stylus
+      - supports-color
+      - ts-node
+    dev: true
+
+  /astro/1.0.0-beta.73:
+    resolution: {integrity: sha512-8gVu04SrJsXJYoLouXWWoj/ZEH2etutLyRzpdK/ueCEdwCmxxCzjXVMvX72aAL/5goFCo4VRuiFWFq7OU1MWLg==}
+    engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
+    hasBin: true
+    dependencies:
+      '@astrojs/compiler': 0.19.0
+      '@astrojs/language-server': 0.20.1
+      '@astrojs/markdown-remark': 0.12.0
+      '@astrojs/prism': 0.6.1
+      '@astrojs/telemetry': 0.4.1
       '@astrojs/webapi': 0.12.0
       '@babel/core': 7.18.9
       '@babel/generator': 7.18.9
@@ -4159,8 +4313,26 @@ packages:
       vscode-uri: 3.0.3
     dev: true
 
+  /vscode-css-languageservice/6.0.1:
+    resolution: {integrity: sha512-81n/eeYuJwQdvpoy6IK1258PtPbO720fl13FcJ5YQECPyHMFkmld1qKHwPJkyLbLPfboqJPM53ys4xW8v+iBVw==}
+    dependencies:
+      vscode-languageserver-textdocument: 1.0.5
+      vscode-languageserver-types: 3.17.2
+      vscode-nls: 5.0.1
+      vscode-uri: 3.0.3
+    dev: true
+
   /vscode-html-languageservice/4.2.5:
     resolution: {integrity: sha512-dbr10KHabB9EaK8lI0XZW7SqOsTfrNyT3Nuj0GoPi4LjGKUmMiLtsqzfedIzRTzqY+w0FiLdh0/kQrnQ0tLxrw==}
+    dependencies:
+      vscode-languageserver-textdocument: 1.0.5
+      vscode-languageserver-types: 3.17.2
+      vscode-nls: 5.0.1
+      vscode-uri: 3.0.3
+    dev: true
+
+  /vscode-html-languageservice/5.0.1:
+    resolution: {integrity: sha512-OYsyn5HGAhxs0OIG+M0jc34WnftLtD67Wg7+TfrYwvf0waOkkr13zUqtdrVm2JPNQ6fJx+qnuM+vTbq7o1dCdQ==}
     dependencies:
       vscode-languageserver-textdocument: 1.0.5
       vscode-languageserver-types: 3.17.2
@@ -4209,6 +4381,13 @@ packages:
     hasBin: true
     dependencies:
       vscode-languageserver-protocol: 3.16.0
+    dev: true
+
+  /vscode-languageserver/8.0.2:
+    resolution: {integrity: sha512-bpEt2ggPxKzsAOZlXmCJ50bV7VrxwCS5BI4+egUmure/oI/t4OlFzi/YNtVvY24A2UDOZAgwFGgnZPwqSJubkA==}
+    hasBin: true
+    dependencies:
+      vscode-languageserver-protocol: 3.17.2
     dev: true
 
   /vscode-nls/5.0.1:

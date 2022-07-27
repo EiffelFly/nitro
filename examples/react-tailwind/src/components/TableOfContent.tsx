@@ -1,4 +1,4 @@
-import { AstroPropHeader } from "../../types/astro";
+import { AstroPropHeader } from "..//types/astro";
 
 export type TableOfContentProps = {
   headers: AstroPropHeader[];

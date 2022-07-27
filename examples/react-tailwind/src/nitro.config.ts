@@ -81,15 +81,14 @@ export type NavbarExteriorLinkItem = {
   className: string;
   position: "right" | "left";
 
-  // If src is present, label will not be displayed, it will display the icon and the aria-label
-  label?: string;
+  // If src is present, label will not be displayed, it will display the icon and the label as aria-label
+  label: string;
   icon?: {
     src: string;
     width: number;
     height: number;
     alt: string;
   };
-  "aria-label"?: string;
 };
 
 export type NavbarItem = NavBarInteriorLinkItem | NavbarExteriorLinkItem;
@@ -127,6 +126,7 @@ export const NAVBAR: NavBar = {
         alt: "github icon",
       },
       position: "right",
+      label: "github",
     },
     {
       position: "left",

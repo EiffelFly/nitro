@@ -1,33 +1,15 @@
 ---
-import { SidebarElement, SidebarSection } from "../../../nitro.config";
+import { SidebarSection } from "nitro";
 import cn from "clsx";
 import { baseStyles } from "../../../styles/base";
 
 export interface Props {
-  elements: SidebarElement[];
+  sections: SidebarSection[];
   currentPagePath: string;
 }
 
-const { elements, currentPagePath } = Astro.props as Props;
+const { sections, currentPagePath } = Astro.props as Props;
 const currentPageMatch = currentPagePath.slice(1);
-
-// SIDEBAR is a flat array. Group it by sections to properly render.
-
-const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
-  // If the first item is not a section header, create a new container section.
-  if (i === 0) {
-    if (!item.header) {
-      const pesudoSection = { text: "" };
-      col.push({ ...pesudoSection, children: [], collapsible: true });
-    }
-  }
-  if (item.header) {
-    col.push({ ...item, children: [], collapsible: item.collapsible ?? false });
-  } else {
-    col[col.length - 1].children.push(item);
-  }
-  return col;
-}, []);
 ---
 
 <nav
@@ -35,7 +17,7 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
   aria-labelledby="grid-left"
 >
   <ul class="h-full overflow-x-visible overflow-y-auto max-h-screen">
-    {sidebarSections.map((section) => (
+    {sections.map((section) => (
       <li>
         <details open>
           <summary class="flex flex-row cursor-pointer">
@@ -57,7 +39,7 @@ const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
             </svg>
           </summary>
           <ul>
-            {section.children.map((child) => (
+            {section.items.map((child) => (
               <li
                 class={cn(
                   "flex text-sm font-normal py-1 cursor-pointer hover:text-gray-800",

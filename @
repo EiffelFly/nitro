@@ -1,0 +1,17 @@
+feat: add Site type
+
+# 請輸入描述您變更的提交訊息。開頭是「#」
+# 的行皆會忽略。提交訊息空白則取消本次提交作業。
+#
+# 互動式重定基底動作正在進行中；至 f47d009
+# 上次完成的命令（完成 1 條指令）：
+#    pick b057f6a feat: add Site type
+# 接下來要執行的命令（剩餘 9 條命令）：
+#    pick 0def094 feat: update peer deps at tailwind-simple
+#    pick e0a1855 refactor: refactor how we export the CONFIG
+# 您在執行將分支 'link-to-nitro-config' 重定基底到 'f47d009' 的動作。
+#
+# 要提交的變更：
+#	修改：     packages/nitro/src/nitro.config.ts
+#	修改：     packages/nitro/src/types.ts
+#

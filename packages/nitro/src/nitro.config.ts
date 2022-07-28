@@ -86,6 +86,7 @@ const navbar: NavBar = {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const config: Config = {
   site,
   sidebar,
@@ -95,6 +96,9 @@ const config: Config = {
 export default config;
 =======
 export const CONFIG = {
+=======
+export const nitroConfig = {
+>>>>>>> 004935d (feat: refactor import and export about nitro.config.ts)
   site,
   navbar,
   sidebar,

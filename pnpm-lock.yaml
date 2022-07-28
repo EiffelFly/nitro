@@ -54,12 +54,15 @@ importers:
       '@types/react-dom': ^18.0.5
       astro: ^1.0.0-beta.72
       clsx: ^1.2.1
+      nitro: workspace:*
       prettier: 2.7.1
       prettier-plugin-astro: ^0.1.2
       prettier-plugin-tailwindcss: ^0.1.12
       react: ^18.1.0
       react-dom: ^18.1.0
       svelte: ^3.46.4
+      tailwindcss: ^3.1.6
+      typescript: ^4.7.4
       vue: ^3.2.37
     dependencies:
       clsx: 1.2.1
@@ -68,17 +71,23 @@ importers:
       vue: 3.2.37
     devDependencies:
       '@astrojs/react': 0.4.2_biqbaboplfbrettd7655fr4n2y
-      '@astrojs/svelte': 0.4.1_svelte@3.49.0
+      '@astrojs/svelte': 0.4.1_uslzfc62di2n2otc2tvfklnwji
       '@astrojs/tailwind': 0.2.4
       '@astrojs/vue': 0.4.1_vue@3.2.37
-      '@tailwindcss/typography': 0.5.4
+      '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.6
       '@types/react': 18.0.15
       '@types/react-dom': 18.0.6
       astro: 1.0.0-beta.72
+      nitro: link:../../packages/nitro
       prettier: 2.7.1
       prettier-plugin-astro: 0.1.2
       prettier-plugin-tailwindcss: 0.1.12_prettier@2.7.1
       svelte: 3.49.0
+      tailwindcss: 3.1.6
+      typescript: 4.7.4
+
+  packages/nitro:
+    specifiers: {}
 
 packages:
 
@@ -288,7 +297,7 @@ packages:
       - typescript
     dev: true
 
-  /@astrojs/svelte/0.4.1_svelte@3.49.0:
+  /@astrojs/svelte/0.4.1_uslzfc62di2n2otc2tvfklnwji:
     resolution: {integrity: sha512-LsVK4sXhlKV20wyeavxViyXouXiTYunsDqnLqTpfiS3/WUK2MtlgVtLuCb18O7EUHgzXjXjfF7UIep6Bn/qzfQ==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
@@ -297,8 +306,8 @@ packages:
       '@sveltejs/vite-plugin-svelte': 1.0.1_svelte@3.49.0+vite@2.9.14
       postcss-load-config: 3.1.4
       svelte: 3.49.0
-      svelte-preprocess: 4.10.7_k3vaqsyrx2lfvza3vdeafxime4
-      svelte2tsx: 0.5.11_svelte@3.49.0
+      svelte-preprocess: 4.10.7_fp5fcdr3v6eb7kvmfi2o4pwvhm
+      svelte2tsx: 0.5.11_uslzfc62di2n2otc2tvfklnwji
       vite: 2.9.14
     transitivePeerDependencies:
       - '@babel/core'
@@ -4136,7 +4145,7 @@ packages:
       svelte: 3.49.0
     dev: true
 
-  /svelte-preprocess/4.10.7_k3vaqsyrx2lfvza3vdeafxime4:
+  /svelte-preprocess/4.10.7_fp5fcdr3v6eb7kvmfi2o4pwvhm:
     resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
@@ -4185,22 +4194,12 @@ packages:
       sorcery: 0.10.0
       strip-indent: 3.0.0
       svelte: 3.49.0
+      typescript: 4.7.4
     dev: true
 
   /svelte/3.49.0:
     resolution: {integrity: sha512-+lmjic1pApJWDfPCpUUTc1m8azDqYCG1JN9YEngrx/hUyIcFJo6VZhj0A1Ai0wqoHcEIuQy+e9tk+4uDgdtsFA==}
     engines: {node: '>= 8'}
-    dev: true
-
-  /svelte2tsx/0.5.11_svelte@3.49.0:
-    resolution: {integrity: sha512-Is95G1wqNvEUJZ9DITRS2zfMwVJRZztMduPs1vJJ0cm65WUg/avBl5vBXjHycQL/qmFpaqa3NG4qWnf7bCHPag==}
-    peerDependencies:
-      svelte: ^3.24
-      typescript: ^4.1.2
-    dependencies:
-      dedent-js: 1.0.1
-      pascal-case: 3.1.2
-      svelte: 3.49.0
     dev: true
 
   /svelte2tsx/0.5.11_ueozcsexptisi2awlbuwt6eqmq:
@@ -4213,6 +4212,18 @@ packages:
       pascal-case: 3.1.2
       svelte: 3.49.0
       typescript: 4.6.4
+    dev: true
+
+  /svelte2tsx/0.5.11_uslzfc62di2n2otc2tvfklnwji:
+    resolution: {integrity: sha512-Is95G1wqNvEUJZ9DITRS2zfMwVJRZztMduPs1vJJ0cm65WUg/avBl5vBXjHycQL/qmFpaqa3NG4qWnf7bCHPag==}
+    peerDependencies:
+      svelte: ^3.24
+      typescript: ^4.1.2
+    dependencies:
+      dedent-js: 1.0.1
+      pascal-case: 3.1.2
+      svelte: 3.49.0
+      typescript: 4.7.4
     dev: true
 
   /synckit/0.7.3:
@@ -4451,6 +4462,12 @@ packages:
 
   /typescript/4.6.4:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/4.7.4:
+    resolution: {integrity: sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true

@@ -1,15 +1,30 @@
+<<<<<<< HEAD
 import { Config, NavBar, Sidebar, Site } from "./types";
 
 const site: Site = {
+=======
+import { NavBar, Sidebar, Site } from "./types";
+
+export const site: Site = {
+>>>>>>> b057f6a (feat: add Site type)
   title: "Documentation",
   description: "Your website description.",
   defaultLanguage: "en_US",
   openGraph: {
     image: {
+<<<<<<< HEAD
       src: "",
       alt: "Nitro is a marketplace for your documentation",
     },
     twitter: "nitro",
+=======
+      src: "https://github.com/withastro/astro/blob/main/assets/social/banner.jpg?raw=true",
+      alt:
+        "astro logo on a starry expanse of space," +
+        " with a purple saturn-like planet floating in the right foreground",
+    },
+    twitter: "astrodotbuild",
+>>>>>>> b057f6a (feat: add Site type)
   },
 };
 

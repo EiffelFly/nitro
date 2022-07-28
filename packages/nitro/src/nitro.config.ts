@@ -5,8 +5,12 @@ const site: Site = {
 =======
 import { NavBar, Sidebar, Site } from "./types";
 
+<<<<<<< HEAD
 export const site: Site = {
 >>>>>>> b057f6a (feat: add Site type)
+=======
+const site: Site = {
+>>>>>>> e0a1855 (refactor: refactor how we export the CONFIG)
   title: "Documentation",
   description: "Your website description.",
   defaultLanguage: "en_US",
@@ -81,6 +85,7 @@ const navbar: NavBar = {
   ],
 };
 
+<<<<<<< HEAD
 const config: Config = {
   site,
   sidebar,
@@ -88,3 +93,10 @@ const config: Config = {
 };
 
 export default config;
+=======
+export const CONFIG = {
+  site,
+  navbar,
+  sidebar,
+};
+>>>>>>> e0a1855 (refactor: refactor how we export the CONFIG)

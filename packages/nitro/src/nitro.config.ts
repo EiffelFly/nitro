@@ -68,7 +68,7 @@ const navbar: NavBar = {
   ],
 };
 
-export const CONFIG = {
+export const nitroConfig = {
   site,
   navbar,
   sidebar,

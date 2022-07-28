@@ -1,6 +1,6 @@
 import { NavBar, Sidebar, Site } from "./types";
 
-export const site: Site = {
+const site: Site = {
   title: "Documentation",
   description: "Your website description.",
   defaultLanguage: "en_US",
@@ -15,7 +15,7 @@ export const site: Site = {
   },
 };
 
-export const SIDEBAR: Sidebar = {
+const sidebar: Sidebar = {
   leftSidebar: {
     sections: [
       {
@@ -39,7 +39,7 @@ export const SIDEBAR: Sidebar = {
   },
 };
 
-export const NAVBAR: NavBar = {
+const navbar: NavBar = {
   title: "Nitro",
   logo: {
     src: "/logo.svg",
@@ -66,4 +66,10 @@ export const NAVBAR: NavBar = {
       label: "Blog",
     },
   ],
+};
+
+export const CONFIG = {
+  site,
+  navbar,
+  sidebar,
 };

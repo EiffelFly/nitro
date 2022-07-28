@@ -2,14 +2,14 @@
 import cn from "clsx";
 import { baseStyles } from "../../../styles/base";
 import Item from "./Item.astro";
-import { nitroConfig } from "nitro";
+import { NavbarItem, nitroConfig } from "nitro";
 
-const { logo, title, items } = NAVBAR;
+const { navbar } = nitroConfig;
 
 let leftItems: NavbarItem[] = [];
 let rightItems: NavbarItem[] = [];
 
-items.forEach((item) => {
+navbar.items.forEach((item) => {
   if (item.position === "right") {
     rightItems.push(item);
   } else {
@@ -29,12 +29,12 @@ items.forEach((item) => {
     <div class="logo flex mr-4">
       <a class="flex flex-row gap-x-3" href="/">
         <img
-          src={logo.src}
-          alt={logo.alt}
-          width={logo.width}
-          height={logo.height}
+          src={navbar.logo.src}
+          alt={navbar.logo.alt}
+          width={navbar.logo.width}
+          height={navbar.logo.height}
         />
-        <h1 class="text-xl font-bold">{title}</h1>
+        <h1 class="text-xl font-bold">{navbar.title}</h1>
       </a>
     </div>
     <div class="flex-1 grid grid-cols-2">

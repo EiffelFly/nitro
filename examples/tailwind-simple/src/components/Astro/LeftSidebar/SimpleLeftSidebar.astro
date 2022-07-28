@@ -1,10 +1,10 @@
 ---
-import { SidebarElement, SidebarSection } from "../../../nitro.config";
+import { SidebarSection } from "nitro";
 import cn from "clsx";
 
 export interface Props {
   currentPagePath: string;
-  elements: SidebarElement[];
+  sections: SidebarSection[];
   topOffset: string;
   hoveredItemBgColor: string;
   currentItemBgColor: string;
@@ -13,43 +13,25 @@ export interface Props {
 
 const {
   currentPagePath,
-  elements,
+  sections,
   hoveredItemBgColor,
   currentItemBgColor,
   currentItemTextColor,
   topOffset,
 } = Astro.props as Props;
 const currentPageMatch = currentPagePath.slice(1);
-
-// SIDEBAR is a flat array. Group it by sections to properly render.
-
-const sidebarSections = elements.reduce<SidebarSection[]>((col, item, i) => {
-  // If the first item is not a section header, create a new container section.
-  if (i === 0) {
-    if (!item.header) {
-      const pesudoSection = { text: "" };
-      col.push({ ...pesudoSection, children: [], collapsible: true });
-    }
-  }
-  if (item.header) {
-    col.push({ ...item, children: [], collapsible: item.collapsible ?? false });
-  } else {
-    col[col.length - 1].children.push(item);
-  }
-  return col;
-}, []);
 ---
 
 <nav class={cn("w-full sticky top-0", topOffset)} aria-labelledby="grid-left">
   <ul class="h-full overflow-x-visible overflow-y-auto max-h-screen">
-    {sidebarSections.map((section) => (
+    {sections.map((section) => (
       <li>
         <div class="">
           <h2 class="text-lg font-bold px-0.5 py-4 uppercase mb-2">
             {section.text}
           </h2>
           <ul>
-            {section.children.map((child) => (
+            {section.items.map((child) => (
               <li
                 class={cn(
                   "text-base px-2 py-1 cursor-pointer hover:bg-slate-200",

@@ -70,3 +70,16 @@ export const isExteriorLink = (
   if ("href" in item) return true;
   return false;
 };
+
+export type Site = {
+  title: string;
+  description: string;
+  defaultLanguage: string;
+  openGraph: {
+    image: {
+      src: string;
+      alt: string;
+    };
+    twitter: string;
+  };
+};

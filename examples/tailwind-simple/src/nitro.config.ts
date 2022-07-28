@@ -42,7 +42,6 @@ export const SIDEBAR: Sidebar = {
     items: [
       { header: true, text: "Intro", collapsible: true },
       { text: "Astro", link: "astro" },
-      { text: "React", link: "react" },
       { text: "Svelte", link: "svelte" },
       { text: "Vue", link: "vue" },
       { text: "Page 5", link: "page-5" },

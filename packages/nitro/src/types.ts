@@ -11,6 +11,12 @@ export type Site = {
   };
 };
 
+export type Config = {
+  site: Site;
+  sidebar: Sidebar;
+  navbar: NavBar;
+};
+
 export type SidebarItem = {
   header?: boolean;
   link?: string;

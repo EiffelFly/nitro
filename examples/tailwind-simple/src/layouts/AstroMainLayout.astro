@@ -4,7 +4,7 @@ import PageContent from "../components/Astro/PageContent.astro";
 import RightSidebar from "../components/Astro/RightSidebar.astro";
 import Navbar from "../components/VitePress/Navbar/Navbar.vue";
 
-import { SITE, SIDEBAR } from "../nitro.config";
+import { nitroConfig } from "nitro";
 import "../styles/index.css";
 import { AstroPropContent } from "../types/astro";
 import HeadCommon from "./HeadCommon.astro";
@@ -14,8 +14,8 @@ const content: AstroPropContent = Astro.props.content;
 const currentPagePath = new URL(Astro.request.url).pathname;
 
 const formattedTitle = content.title
-  ? `${content.title} | ${SITE.title}`
-  : SITE.title;
+  ? `${content.title} | ${nitroConfig.site.title}`
+  : nitroConfig.site.title;
 ---
 
 <html dir={content.dir ?? "ltr"} lang={content.lang ?? "en-us"} class="initial">
@@ -34,7 +34,7 @@ const formattedTitle = content.title
     <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
       <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
         <FoldableLeftSidebar
-          elements={SIDEBAR.leftSidebar.items}
+          sections={nitroConfig.sidebar.leftSidebar.sections}
           currentPagePath={currentPagePath}
         />
       </aside>

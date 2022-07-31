@@ -1,22 +1,19 @@
-import { NavBar, Sidebar } from "./types";
+import { Config, NavBar, Sidebar, Site } from "./types";
 
-export const SITE = {
+const site: Site = {
   title: "Documentation",
   description: "Your website description.",
   defaultLanguage: "en_US",
-};
-
-export const OPEN_GRAPH = {
-  image: {
-    src: "https://github.com/withastro/astro/blob/main/assets/social/banner.jpg?raw=true",
-    alt:
-      "astro logo on a starry expanse of space," +
-      " with a purple saturn-like planet floating in the right foreground",
+  openGraph: {
+    image: {
+      src: "",
+      alt: "Nitro is a marketplace for your documentation",
+    },
+    twitter: "nitro",
   },
-  twitter: "astrodotbuild",
 };
 
-export const SIDEBAR: Sidebar = {
+const sidebar: Sidebar = {
   leftSidebar: {
     sections: [
       {
@@ -40,7 +37,7 @@ export const SIDEBAR: Sidebar = {
   },
 };
 
-export const NAVBAR: NavBar = {
+const navbar: NavBar = {
   title: "Nitro",
   logo: {
     src: "/logo.svg",
@@ -68,3 +65,11 @@ export const NAVBAR: NavBar = {
     },
   ],
 };
+
+const config: Config = {
+  site,
+  sidebar,
+  navbar,
+};
+
+export default config;

@@ -5,11 +5,12 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./build-script.js && pnpm build-types",
+    "build": "rimraf dist &&node ./build-script.js && pnpm build-types",
     "build-types": "tsc --emitDeclarationOnly --outDir dist"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.js",
+    "./config": "./nitro.config.mjs"
   },
   "types": "./dist/index.d.ts",
   "keywords": [],

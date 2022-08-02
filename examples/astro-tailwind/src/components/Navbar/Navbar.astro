@@ -1,10 +1,11 @@
 ---
 import cn from "clsx";
-import { baseStyles } from "../../../styles/base";
 import Item from "./Item.astro";
-import { NavbarItem, nitroConfig } from "nitro";
+import { NavbarItem } from "nitro";
+import { baseStyles } from "../../styles/base";
+import config from "../../../nitro.config.mjs";
 
-const { navbar } = nitroConfig;
+const { navbar } = config;
 
 let leftItems: NavbarItem[] = [];
 let rightItems: NavbarItem[] = [];

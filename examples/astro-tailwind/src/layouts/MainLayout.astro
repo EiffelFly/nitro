@@ -1,0 +1,57 @@
+---
+import LeftSidebar from "../components/LeftSidebar.astro";
+import PageContent from "../components/PageContent.astro";
+import RightSidebar from "../components/RightSidebar.astro";
+import Navbar from "../components/Navbar/Navbar.astro";
+import HeadCommon from "./HeadCommon.astro";
+import HeadSeo from "./HeadSeo.astro";
+import config from "../../nitro.config.mjs";
+
+import "../styles/index.css";
+import { AstroPropContent } from "nitro";
+import { Frontmatter } from "../types/frontmatter";
+
+
+const content: AstroPropContent & Frontmatter = Astro.props.content;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const formattedTitle = content.title
+  ? `${content.title} | ${config.site.title}`
+  : config.site.title;
+---
+
+<html dir={content.dir ?? "ltr"} lang={content.lang ?? "en-us"} class="initial">
+  <head>
+    <HeadCommon />
+    <HeadSeo
+      content={content}
+      canonicalURL={canonicalURL.toString()}
+      title={formattedTitle}
+    />
+    <title>{formattedTitle}</title>
+  </head>
+
+  <body>
+    <Navbar />
+    <main class="grid grid-flow-col grid-cols-12 mx-auto gap-x-5">
+      <aside id="grid-left" class="col-span-2 ml-10" title="Site Navigation">
+        <LeftSidebar
+          sections={config.sidebar.leftSidebar.sections}
+          currentPagePath={Astro.url.pathname}
+        />
+      </aside>
+      <div id="grid-main" class="col-span-8 max-w-4xl mx-auto">
+        <PageContent title={content.title}>
+          <slot />
+        </PageContent>
+      </div>
+      <aside
+        id="grid-right"
+        class="grid-sidebar col-span-2 mr-10"
+        title="Table of Contents"
+      >
+        <RightSidebar headers={content.astro.headers} />
+      </aside>
+    </main>
+  </body>
+</html>

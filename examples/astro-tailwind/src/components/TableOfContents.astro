@@ -1,6 +1,6 @@
 ---
-import { AstroPropHeader } from "../../types/astro";
-import { nitroConfig } from "nitro";
+import { AstroPropHeader } from "nitro";
+import config from "../../nitro.config.mjs";
 
 export interface Props {
   headers: AstroPropHeader[];
@@ -15,8 +15,8 @@ const { headers } = Astro.props as Props;
     {headers
       .filter(
         ({ depth }) =>
-          depth >= nitroConfig.sidebar.rightSidebar.headerMinDepth &&
-          depth <= nitroConfig.sidebar.rightSidebar.headerMaxDepth
+          depth >= config.sidebar.rightSidebar.headerMinDepth &&
+          depth <= config.sidebar.rightSidebar.headerMaxDepth
       )
       .map((header) => (
         <li class="group text-sm py-0.5 my-2.5 pl-4 border-l-2 border-slate-300 hover:border-slate-700">
